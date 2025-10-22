@@ -1,33 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Hub</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Knowledge Hub — Learn Anything</title>
+  <meta name="description" content="Knowledge Hub — clear notes and explanations on science, math, history, technology and more. English & Hindi friendly." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Knowledge Hub</h1>
-        <p>Your global knowledge platform</p>
-    </header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1><a href="./">Knowledge Hub</a></h1>
+        <p class="tag">Your global knowledge platform</p>
+      </div>
+      <nav class="main-nav">
+        <a href="topics/science.html">Science</a>
+        <a href="topics/math.html">Math</a>
+        <a href="topics/history.html">History</a>
+        <a href="topics/technology.html">Technology</a>
+      </nav>
+    </div>
+  </header>
 
-    <nav>
-        <ul>
-            <li><a href="topics/science.html">Science</a></li>
-            <li><a href="topics/math.html">Math</a></li>
-            <li><a href="topics/history.html">History</a></li>
-            <li><a href="topics/technology.html">Technology</a></li>
-        </ul>
-    </nav>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Learn anything. Fast.</h2>
+        <p>Clear, concise notes and examples for students and curious minds. Start with Class 9–10 science & math — expand to all topics.</p>
+        <div class="search-wrap">
+          <input id="topicSearch" type="search" placeholder="Search topics, e.g. 'motion' or 'pythagoras'">
+          <button id="clearSearch" title="Clear">✕</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">📚 Notes • 🔍 Searchable • 📝 Downloadable</div>
+      </div>
+    </section>
 
-    <main>
-        <h2>Welcome to Knowledge Hub!</h2>
-        <p>Explore notes on any topic in the world. Click a category above to start learning!</p>
-    </main>
+    <section class="categories">
+      <h3>Popular Categories</h3>
+      <div class="cards">
+        <a class="card" href="topics/science.html">
+          <div class="card-title">Science</div>
+          <div class="card-desc">Physics, Chemistry, Biology — clear notes & examples</div>
+        </a>
+        <a class="card" href="topics/math.html">
+          <div class="card-title">Math</div>
+          <div class="card-desc">Geometry, Algebra, Problem-solving tips</div>
+        </a>
+        <a class="card" href="topics/history.html">
+          <div class="card-title">History</div>
+          <div class="card-desc">Important events, timelines & summaries</div>
+        </a>
+        <a class="card" href="topics/technology.html">
+          <div class="card-title">Technology</div>
+          <div class="card-desc">AI, programming, and real-world tech explained</div>
+        </a>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Knowledge Hub. All rights reserved.</p>
-    </footer>
+    <section class="latest" id="topicListSection">
+      <h3>All Topics</h3>
+      <ul id="topicList" class="topic-list">
+        <!-- You will add more <li> entries for each topic page -->
+        <li data-tags="motion physics class9"> <a href="topics/motion.html">What is Motion? — Class 9 (Physics)</a> </li>
+        <!-- Example placeholders (delete/replace with real pages) -->
+        <li data-tags="pythagoras math class9"> <a href="topics/pythagoras.html">Pythagoras Theorem — Class 9 (Math)</a> </li>
+        <li data-tags="acids bases chemistry class10"> <a href="topics/acids-bases.html">Acids & Bases — Class 10 (Chemistry)</a> </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Knowledge Hub. Built by Ayush Mishra.</p>
+      <p><small>Want to contribute topics or request content? Add a new page under <code>/topics/</code> or contact via your repo.</small></p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple client-side search/filter for the topics list
+    const searchInput = document.getElementById('topicSearch');
+    const topicList = document.getElementById('topicList');
+    const clearBtn = document.getElementById('clearSearch');
+
+    function filterTopics() {
+      const q = searchInput.value.trim().toLowerCase();
+      const items = topicList.querySelectorAll('li');
+      let visible = 0;
+      items.forEach(li => {
+        const tags = li.getAttribute('data-tags') || '';
+        const title = li.textContent.toLowerCase();
+        if (!q || title.includes(q) || tags.includes(q)) {
+          li.style.display = '';
+          visible++;
+        } else {
+          li.style.display = 'none';
+        }
+      });
+      if (visible === 0 && q) {
+        // optional: show message
+      }
+    }
+
+    searchInput.addEventListener('input', filterTopics);
+    clearBtn.addEventListener('click', () => { searchInput.value=''; filterTopics(); searchInput.focus(); });
+  </script>
 </body>
 </html>
+
