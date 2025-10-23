@@ -1,59 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AyuNexis – Your Nexus of Knowledge</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="hero">
-  <h1>AyuNexis</h1>
-  <p>Your Nexus of Knowledge</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="classes/class6.html">Classes</a>
-    <a href="subjects/math.html">Subjects</a>
-    <a href="subjects/coding.html">Coding</a>
-  </nav>
-</header>
+/* General */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+body { transition: background 0.3s, color 0.3s; overflow-x:hidden; background:#0F172A; color:#fff; }
 
-<main class="container">
-  <section class="intro">
-    <h2>Welcome to AyuNexis</h2>
-    <p>Learn, practice, and excel with our step-by-step guidance, notes, NCERT PDFs, and coding exercises.</p>
-  </section>
+/* Header */
+header { display:flex; justify-content: space-between; align-items:center; padding:20px 50px; background: linear-gradient(90deg,#1E3A8A,#22D3EE); box-shadow:0 5px 15px rgba(0,0,0,0.2); position: sticky; top:0; z-index:100; }
+header h1 { font-size:36px; font-weight:800; letter-spacing:2px; background: linear-gradient(45deg,#FFD700,#22D3EE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+nav a { color:#fff; margin-left:25px; text-decoration:none; font-weight:600; font-size:16px; position:relative; }
+nav a::after { content:""; position:absolute; width:0%; height:2px; bottom:-3px; left:0; background:#FFD700; transition:0.3s; }
+nav a:hover::after { width:100%; }
+#theme-toggle { background:none; border:none; font-size:24px; cursor:pointer; color:#fff; }
 
-  <section class="classes">
-    <h2>Explore by Class</h2>
-    <div class="cards">
-      <a href="classes/class6.html" class="card">Class 6</a>
-      <a href="classes/class7.html" class="card">Class 7</a>
-      <a href="classes/class8.html" class="card">Class 8</a>
-      <a href="classes/class9.html" class="card">Class 9</a>
-      <a href="classes/class10.html" class="card">Class 10</a>
-      <a href="classes/class11.html" class="card">Class 11</a>
-      <a href="classes/class12.html" class="card">Class 12</a>
-    </div>
-  </section>
+/* Hero */
+.hero { text-align:center; padding:120px 20px; position:relative; overflow:hidden; background: linear-gradient(135deg,#22D3EE,#1E3A8A); background-size: 400% 400%; animation: gradientBG 15s ease infinite; }
+@keyframes gradientBG { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+.hero h2 { font-size:60px; font-weight:800; margin-bottom:20px; background: linear-gradient(45deg,#FFD700,#22D3EE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { font-size:22px; margin-bottom:20px; color:#E0F2FE; }
+.hero input { padding:12px 20px; border-radius:10px; border:none; font-size:16px; width:250px; outline:none; }
 
-  <section class="subjects">
-    <h2>Explore by Subject</h2>
-    <div class="cards">
-      <a href="subjects/math.html" class="card">Math</a>
-      <a href="subjects/science.html" class="card">Science</a>
-      <a href="subjects/english.html" class="card">English</a>
-      <a href="subjects/hindi.html" class="card">Hindi</a>
-      <a href="subjects/social.html" class="card">Social Science</a>
-      <a href="subjects/coding.html" class="card">Coding</a>
-    </div>
-  </section>
-</main>
+/* Topics */
+.topics { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; padding:60px 50px; }
+.card { position:relative; border-radius:20px; overflow:hidden; cursor:pointer; padding:20px; color:#fff; background: linear-gradient(135deg,#22D3EE,#1E3A8A); background-size:200% 200%; animation: cardGradient 5s ease infinite; opacity:0; transform: translateY(50px); transition: all 0.5s; box-shadow:0 8px 25px rgba(0,0,0,0.3); }
+@keyframes cardGradient { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+.card h3 { font-size:22px; font-weight:700; margin-bottom:10px; }
+.card p { font-size:16px; line-height:1.5; }
+.card.visible { opacity:1; transform:translateY(0); }
+.card:hover { transform: scale(1.05); box-shadow:0 15px 35px rgba(0,0,0,0.6); }
 
-<footer>
-  <p>© 2025 AyuNexis | All Rights Reserved</p>
-</footer>
-</body>
-</html>
+/* Topic Page */
+.topic-page { padding:60px 50px; display:none; opacity:0; transform:translateY(30px); transition: all 0.5s; }
+.topic-page.active { opacity:1; transform:translateY(0); }
+.topic-page img { max-width:100%; border-radius:15px; margin:20px 0; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.topic-page img:hover { transform: scale(1.05); box-shadow:0 10px 30px rgba(0,0,0,0.4); }
+#back-btn { background:#22D3EE; color:#fff; padding:10px 20px; border:none; border-radius:10px; cursor:pointer; margin-bottom:20px; font-weight:700; transition: transform 0.3s; }
+#back-btn:hover { background:#1E3A8A; transform: scale(1.05); }
 
+/* Footer */
+footer { text-align:center; padding:30px; background:#1E3A8A; font-weight:600; letter-spacing:1px; transition: background 0.3s; }
+
+/* Light Mode */
+body.light { background:#F8F9FA; color:#1E3A8A; }
+body.light .card { color:#fff; background: linear-gradient(135deg,#1E3A8A,#22D3EE); }
+body.light #back-btn { background:#1E3A8A; color:#fff; }
+body.light footer { background:#22D3EE; color:#1E3A8A; }
