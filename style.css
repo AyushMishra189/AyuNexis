@@ -1,118 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AyuNexis – Your Nexus of Knowledge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <h1>AyuNexis</h1>
+  <p>Your Nexus of Knowledge</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="classes/class6.html">Classes</a>
+    <a href="subjects/math.html">Subjects</a>
+    <a href="subjects/coding.html">Coding</a>
+  </nav>
+</header>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+<main class="container">
+  <section class="intro">
+    <h2>Welcome to AyuNexis</h2>
+    <p>Learn, practice, and excel with our step-by-step guidance, notes, NCERT PDFs, and coding exercises.</p>
+  </section>
 
-body {
-  background: #0d1117;
-  color: #fff;
-  line-height: 1.6;
-}
+  <section class="classes">
+    <h2>Explore by Class</h2>
+    <div class="cards">
+      <a href="classes/class6.html" class="card">Class 6</a>
+      <a href="classes/class7.html" class="card">Class 7</a>
+      <a href="classes/class8.html" class="card">Class 8</a>
+      <a href="classes/class9.html" class="card">Class 9</a>
+      <a href="classes/class10.html" class="card">Class 10</a>
+      <a href="classes/class11.html" class="card">Class 11</a>
+      <a href="classes/class12.html" class="card">Class 12</a>
+    </div>
+  </section>
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, #007bff, #00c6ff);
-  text-align: center;
-  padding: 4rem 1rem;
-  color: white;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
+  <section class="subjects">
+    <h2>Explore by Subject</h2>
+    <div class="cards">
+      <a href="subjects/math.html" class="card">Math</a>
+      <a href="subjects/science.html" class="card">Science</a>
+      <a href="subjects/english.html" class="card">English</a>
+      <a href="subjects/hindi.html" class="card">Hindi</a>
+      <a href="subjects/social.html" class="card">Social Science</a>
+      <a href="subjects/coding.html" class="card">Coding</a>
+    </div>
+  </section>
+</main>
 
-.hero h1 {
-  font-size: 3rem;
-}
-
-.hero p {
-  margin: 1rem 0;
-  font-size: 1.2rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: white;
-  color: #007bff;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #222;
-  color: white;
-}
-
-/* Navigation */
-nav {
-  background: #161b22;
-  padding: 10px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-nav a {
-  color: #00c6ff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-nav a:hover, nav a.active {
-  color: white;
-}
-
-/* Main Content */
-.container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-h2 {
-  color: #00c6ff;
-  border-left: 5px solid #00c6ff;
-  padding-left: 10px;
-  margin-bottom: 1rem;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.card {
-  background: #161b22;
-  border-radius: 15px;
-  padding: 2rem;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #00c6ff;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 15px #00c6ff;
-}
-
-/* Footer */
-footer {
-  background: #0b0f14;
-  color: #aaa;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-}
+<footer>
+  <p>© 2025 AyuNexis | All Rights Reserved</p>
+</footer>
+</body>
+</html>
 
